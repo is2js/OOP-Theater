@@ -1,7 +1,8 @@
 package theater;
 
 public class Ticket {
-    private static final Ticket EMPTY = new Ticket(null);
+
+    public static final Ticket EMPTY = new Ticket(null);
     private final Theater theater;
     private boolean isEntered = false;
 
@@ -13,7 +14,7 @@ public class Ticket {
         if (isEntered || theater != this.theater || this == EMPTY) {
             return false;
         }
-        isEntered = true; 
+        isEntered = true;
         return true;
     }
 

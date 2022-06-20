@@ -1,18 +1,25 @@
 package theater;
 
 public class Ticket {
+    private static final Ticket EMPTY = new Ticket(null);
     private final Theater theater;
+    private boolean isEntered = false;
 
-    // 발행되는 객체는, 발행주체를 생성할 때부터 알고 있으며, 발급주체가 불변하도록 final field로 박아둔다.
     public Ticket(final Theater theater) {
         this.theater = theater;
     }
 
+    // 유효한표인지 검증할 때 필요한 정보도, 객체로 받아온다.
     public boolean isValid(final Theater theater) {
-        throw new UnsupportedOperationException("Ticket#isValid not write.");
+        // 검증시 1) 이미 쓴표냐? 2) 현재 주체가 발행주체랑 다르냐? 3) 잘못생성된 표냐? null객체
+        if (isEntered || theater != this.theater || this == EMPTY) {
+            return false;
+        }
+        // 잘못된 예들의 검증을 통과하면, 이미 쓴표로 toggle 먼저하고, true를 반환
+        isEntered = true; // 상태관리(flag toggle)를 자기가 하는 maintenance of status
+        return true;
     }
 
-    // 정보를 값이 아닌 식별자인 객체로 받아와 저장해놨다면, 정보를 내어줄 때 포인터의 포인터로 내어준다.
     public Long getFee() {
         return theater.getFee();
     }

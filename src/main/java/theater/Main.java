@@ -27,18 +27,6 @@ public class Main {
         //   각 영화들에 딸린 상영정보(Screening)들도 넣어줘야하는데,
         //   각 영화당 상영정보들을 매칭해서 넣어줘야하니, pk에 대한 fk처럼, pk movie와 같이 넣어줘야 매칭된다.
         // -> theater screening 객체(순서, 시간, 가용좌석수)) 받기기능
-        // --> 상영관을 지정안한다면, 대신 [가용좌석수]를 넣어줘야 무한예매를 막을 수 있다.
-//        theater.addScreening(
-//            movie, //fk
-//            new Screening(
-//                seq,
-//                LocalDateTime.of(2019, 7, day, hour, 00, 00),
-//                100
-//            )
-//        );
-        // 반복문)
-        // 1) seq,  hour은 같이 같은 제한갯수로 도니까, 3시간마다 돌리면서 24시전까지의 제한이 있는 hour에만 제한을 주고, 안쪽에서 같이 돌려준다
-        // 2) 매번 하루의 제한이 끝날때마다 day를 바깥에서 돌려준다. 8일부터 31일까지 돌릴 예정이다.
         for (int day = 7; day < 32; day++) {
             for (int hour = 10, seq = 1; hour < 24; hour +=3, seq++) {
                 theater.addScreening(
@@ -51,5 +39,14 @@ public class Main {
                 );
             }
         }
+
+        //4-1. 티켓판매소를 만든다. 얼마나 판매했는지 자본금을 가지고 초기화하되 값객체를 쓴다.
+        // Long -> Money(double)
+        final TicketOffice ticketOffice = new TicketOffice(Money.of(0.0));
+        //4-2. theater와 협력해서 티켓을 팔아줄 티켓판매소는 [서로 계약]을 맺되, [수수로fee]도 같이 받아와서 계약한다.
+        // - 계약시, 계약할 객체 + 계약조건도 같이 인자로 받음.
+        theater.contractTicketOffice(ticketOffice, 10.0);
+
+        //5. 
     }
 }

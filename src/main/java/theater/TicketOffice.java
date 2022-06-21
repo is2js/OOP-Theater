@@ -5,10 +5,10 @@ import java.util.List;
 
 public class TicketOffice {
 
-    private Long amount;
+    private Money amount;
     private List<Ticket> tickets = new ArrayList<>();
 
-    public TicketOffice(Long amount) {
+    public TicketOffice(Money amount) {
         this.amount = amount;
     }
 

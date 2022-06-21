@@ -6,15 +6,11 @@ import java.util.List;
 
 public class Theater {
 
-    private final Long fee;
+    private final Money amount;
     private final List<TicketOffice> ticketOffices = new ArrayList<>();
 
-    public Theater(final Long fee) {
-        this.fee = fee;
-    }
-
-    public Long getFee() {
-        return fee;
+    public Theater(final Money amount) {
+        this.amount = amount;
     }
 
     public void setTicketOffices(TicketOffice... ticketOffices) {

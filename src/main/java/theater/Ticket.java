@@ -17,8 +17,4 @@ public class Ticket {
         isEntered = true;
         return true;
     }
-
-    public Long getFee() {
-        return theater.getFee();
-    }
 }

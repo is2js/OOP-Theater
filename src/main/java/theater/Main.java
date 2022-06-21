@@ -21,5 +21,35 @@ public class Main {
         //2-2.  극장은 만들어진 영화객체를 client에서 받아간다.
         // - setter는 1개 받기 기능 / add는 2개이상 받기기능
         theater.addMovie(movie);
+
+
+        //3. 각 극장(상위1) 객체에는 영화들(하위N) 을 [매칭하여 저장]할 뿐만 아니라
+        //   각 영화들에 딸린 상영정보(Screening)들도 넣어줘야하는데,
+        //   각 영화당 상영정보들을 매칭해서 넣어줘야하니, pk에 대한 fk처럼, pk movie와 같이 넣어줘야 매칭된다.
+        // -> theater screening 객체(순서, 시간, 가용좌석수)) 받기기능
+        // --> 상영관을 지정안한다면, 대신 [가용좌석수]를 넣어줘야 무한예매를 막을 수 있다.
+//        theater.addScreening(
+//            movie, //fk
+//            new Screening(
+//                seq,
+//                LocalDateTime.of(2019, 7, day, hour, 00, 00),
+//                100
+//            )
+//        );
+        // 반복문)
+        // 1) seq,  hour은 같이 같은 제한갯수로 도니까, 3시간마다 돌리면서 24시전까지의 제한이 있는 hour에만 제한을 주고, 안쪽에서 같이 돌려준다
+        // 2) 매번 하루의 제한이 끝날때마다 day를 바깥에서 돌려준다. 8일부터 31일까지 돌릴 예정이다.
+        for (int day = 7; day < 32; day++) {
+            for (int hour = 10, seq = 1; hour < 24; hour +=3, seq++) {
+                theater.addScreening(
+                    movie, //fk
+                    new Screening(
+                        seq,
+                        LocalDateTime.of(2019, 7, day, hour, 00, 00),
+                        100
+                    )
+                );
+            }
+        }
     }
 }

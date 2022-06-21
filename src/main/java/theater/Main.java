@@ -47,6 +47,9 @@ public class Main {
         // - 계약시, 계약할 객체 + 계약조건도 같이 인자로 받음.
         theater.contractTicketOffice(ticketOffice, 10.0);
 
-        //5. 
+        //5. seller는 프리랜서로서, 소속기관 null상태로 생성된 뒤에, 바뀔 수 있는 소속기간을 배정한다.
+        final TicketSeller ticketSeller = new TicketSeller();
+        // 계약이 아니라고 치고, 상위도메인으로서 소속기관 office를 받기기능을 통해, 소속기관 정보필드에 꽂아넎는다.
+        ticketSeller.setTicketOffice(ticketOffice);
     }
 }

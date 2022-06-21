@@ -18,8 +18,10 @@ public class Audience {
         ticket = ticketSeller.getTicket(this);
     }
 
+    // 내 정보(상태값)만 주기기능 getter는, 상대방(Theater)이 내 밖에서 직접 나를 검증/판단할때를 준다.
+    // -> 나의 정보를 가져가서 판단하는 것보다, 나에게 시키는게 더 좋을 듯하다.
     public Ticket getTicket() {
-        throw new UnsupportedOperationException("Audience#getTicket not write.");
+        return ticket;
     }
 
     public Invitation getInvitation() {

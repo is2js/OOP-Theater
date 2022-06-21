@@ -41,7 +41,7 @@ public class Audience {
     // 물건을 사는놈은 을로서, [파는놈]에게 거래가능한지 [거래가능 검증당하기 기능]을 제공해야한다.
     // -> 주는 기능이 아니라서 기능제공해도 을임.
     public boolean hasAmount(final Long ticketPrice) {
-        return this.amount > ticketPrice;
+        return this.amount >= ticketPrice;
     }
 
     // 물건을 사는놈은 을로서, [파는놈]에게 물건양호시 [돈차감 후 성공여부]기능을 제공해야한다.

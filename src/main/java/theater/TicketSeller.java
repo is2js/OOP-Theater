@@ -10,7 +10,7 @@ public class TicketSeller {
 
     public Ticket getTicket(Audience audience) {
         Ticket ticket = Ticket.EMPTY;
-        if( audience.getInvivation() != Invitation.EMPTY){
+        if( audience.getInvitation() != Invitation.EMPTY){
             ticket = ticketOffice.getTicketWithNoFee();
             if( ticket != Ticket.EMPTY){
                 audience.removeInvitation();

@@ -2,9 +2,10 @@ package theater;
 
 public class Audience {
     private Ticket ticket = Ticket.EMPTY;
-    private Invitation invitation = Invitation.EMPTY;
-    private final Long amount;
 
+    private Invitation invitation = Invitation.EMPTY;
+
+    private final Long amount;
     public Audience(final Long amount) {
         this.amount = amount;
     }
@@ -16,22 +17,22 @@ public class Audience {
         ticket = ticketSeller.getTicket(this);
     }
 
-
-
-    public void setInvitation(final Invitation invitation) {
-        throw new UnsupportedOperationException("Audience#setInvitation not write.");
-    }
-
     public Ticket getTicket() {
         throw new UnsupportedOperationException("Audience#getTicket not write.");
     }
 
-    public Invitation getInvivation() {
-        throw new UnsupportedOperationException("Audience#getInvivation not write.");
+    public Invitation getInvitation() {
+        return invitation;
+    }
+
+    // setter는 필드로 받기기능이다. -> 객체필드를 받는다면 미리 알아야한다.
+    public void setInvitation(final Invitation invitation) {
+        this.invitation = invitation;
     }
 
     public void removeInvitation() {
-        throw new UnsupportedOperationException("Audience#removeInvitation not write.");
+        // 1회성 소모재료객체의 소진은 0 대신 null객체를 사용한다.
+        invitation = Invitation.EMPTY;
     }
 
     public boolean hasAmount(final Long ticketPrice) {

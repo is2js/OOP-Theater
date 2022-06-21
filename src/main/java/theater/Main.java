@@ -51,5 +51,27 @@ public class Main {
         final TicketSeller ticketSeller = new TicketSeller();
         // 계약이 아니라고 치고, 상위도메인으로서 소속기관 office를 받기기능을 통해, 소속기관 정보필드에 꽂아넎는다.
         ticketSeller.setTicketOffice(ticketOffice);
+
+        //6. audience - 티켓구매 대신 Customer가 - 티켓예매를 한다
+        // - 역시 자본금을 상태값으로 가진 체로 태어난다.
+        final Customer customer = new Customer(Money.of(20000.0));
+
+        //7. Customer가 예매를 한다.
+        // - 예매도 사는 것이라, 갑은 파는놈 seller/ 입장을 검증하는 theater일 것이다.
+        // - 사는 놈(을)은  갑들을 인자로 받되, 내부에서는 갑들이 제공하는 기능에 인자로 역으로 들어갈 것이다.
+        // 7-1. 특정 theater에 저장된 영화들 중 1개 - 영화에 딸린 상영정보들 중 1개를 고른다.
+        //       theater는 영화에 따른 상영정보들 함께 (map으로) 저장해놨으니 -> 영화1개를 key로 넣으면, 딸린 상영정보들을 제공해준다.
+        // -> 특정theater, 특정movie를 위에서 생성한 것 똑같이 골랐다고 가정하고
+        // --> 여러 상영정보 중 첫번째 것을 예매하기 위해, for로 꺼내서 돌되, + break;로 첫번째 것만 예매한다.
+        // ----> 상위 - 중간 - 하위도메인 들 중 택1은 UI로 제공 되지만, 여기서는 for + break;를 활용해 여러개중 1개 택 한다.
+        for (Screening screening: theater.getScreening(movie)) {
+            // 7-2. 사는 사람은 을로서, 일단 팔고/검증하는 객체들을 인자로 받와 예매(구매)한다.
+            //      무엇을 살것인지까지 인자로 받아오자.(ticket처럼 내부발행되는 것을 사는게 아님)
+            customer.reserve( seller, theater, movie, screening, 2);
+            // 7-3. 사는 놈이 제대로 샀는지 검증해주는 표 확인 theaer가 customer(사는 놈)과 검증할 정보를 인자로 받아 검증해준다.
+            final boolean isOk = theater.enter(customer, 2);
+            System.out.println("isOk = " + isOk);
+            break; // 드랍박스 중 택1을 for+break;로 첫번째 것으로 대체한다.
+        }
     }
 }

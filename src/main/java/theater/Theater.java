@@ -73,8 +73,20 @@ public class Theater {
         return movies.containsKey(movie) && movies.get(movie).contains(screening);
     }
 
-    public boolean enter(Audience audience) {
-        Ticket ticket = audience.getTicket();
-        return ticket.isValid(this);
+
+    // 을로서 예매권을 구매한 Customer를 받아와, 내부정보로 검증해준다.
+    // theater는 예매권을 최종 발행해주는 객체로서, 정보를 많이 가지고 있기 때문에, 여기서 검증해준다?!
+    // -> 발행과 발행시 정보주입의 주체로서 검증의 책임이 있는 Theater
+    // -> count(이용좌석수)는 theater가 가지고 있지 않아, 검증을 위해 외부에서 customer가 예매한 좌석수와 동일한 값을 받아서 입력한다.
+    public boolean enter(Customer customer, int count) {
+        // 1) customer에게 구매한 예매권을 받아온다.
+        Reservation reservation = customer.reservation;
+        // 2) 예매권 정보 vs theater내 정보를 비교한다. with 외부에서 입력해준 count
+        //   -> 모두 유효한 정보여야지 true로 성공이다.
+        return reservation != Reservation.NONE
+            && reservation.theater == this
+            && isValidScreening(reservation.movie, reservation.screening)
+            && reservation.count == count;
+
     }
 }

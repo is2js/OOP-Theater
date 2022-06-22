@@ -13,6 +13,6 @@ public abstract class AmountDiscount implements AMOUNT, DiscountCondition {
 
     @Override
     public Money calculateFee(final Money fee) {
-        return fee.minus(amount)
+        return fee.minus(amount);
     }
 }

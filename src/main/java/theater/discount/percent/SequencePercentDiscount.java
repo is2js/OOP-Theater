@@ -5,7 +5,7 @@ import theater.Screening;
 public class SequencePercentDiscount extends PercentDiscount {
     private final int sequence;
 
-    protected SequencePercentDiscount(final double percent, final int sequence) {
+    public SequencePercentDiscount(final double percent, final int sequence) {
         super(percent);
         this.sequence = sequence;
     }

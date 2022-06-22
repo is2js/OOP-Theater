@@ -7,7 +7,7 @@ import theater.Screening;
 public class TimeAmountDiscount extends AmountDiscount {
     private LocalDateTime whenScreened;
 
-    protected TimeAmountDiscount(final Money amount, final LocalDateTime whenScreened) {
+    public TimeAmountDiscount(final Money amount, final LocalDateTime whenScreened) {
         super(amount);
         this.whenScreened = whenScreened;
     }

@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import theater.discount.amount.AmountDiscount;
 import theater.discount.amount.SequenceAmountDiscount;
-import theater.discount.percent.PercentDiscount;
 
 public class Main {
     public static void main(final String[] args) {

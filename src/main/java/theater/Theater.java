@@ -10,7 +10,7 @@ public class Theater {
     public static final Set<Screening> EMPTY = new HashSet<>();
     private final Set<TicketOffice> ticketOffices = new HashSet<>();
     private final Map<Movie, Set<Screening>> movies = new HashMap<>();
-    private final Money amount;
+    private Money amount;
 
     public Theater(final Money amount) {
         this.amount = amount;
@@ -46,6 +46,12 @@ public class Theater {
             return false;
         }
         return ticketOffices.remove(ticketOffice);
+    }
+
+    void plusAmount(Money amount){
+        //값 객체는 연산후 새 객체를 반환하므로, VO 필드는 재할당 할 수 밖에 없다.
+        // -> 스스로 값이 자동 증가하지 않으니 반드시 재할당 해줘야한다.
+        this.amount = this.amount.plus(amount);
     }
 
     public boolean enter(Audience audience) {

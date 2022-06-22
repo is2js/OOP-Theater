@@ -87,6 +87,19 @@ public class Theater {
             && reservation.theater == this
             && isValidScreening(reservation.movie, reservation.screening)
             && reservation.count == count;
-
     }
+
+    // Customer로부터 seller -> office -> theater에게 정보 검증과 예매권 생성 요청
+    // 검증
+    Reservation reserve(Movie movie, Screening screening, int count) {
+        // 예매권 생성 전 검증 1) 유효한 정보인지 2) 상영정보에 예약전 trigger메서드를 이용해서 빈 자리가 있는지 -> 검증실패시 데이터NULL객체 반환
+        if (!isValidScreening(movie, screening)
+            || !screening.hasSeat(count)) {
+            return Reservation.NONE;
+        }
+        // trigger 성공 후 <-> 예매권발행 전, screening내 이용가능좌석수 field 차감 액션 발생
+        screening.reserveSeat(count);
+        return new Reservation(this, movie, screening, count);
+    }
+
 }

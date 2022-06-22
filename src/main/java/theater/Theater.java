@@ -54,6 +54,19 @@ public class Theater {
         this.amount = this.amount.plus(amount);
     }
 
+    // 하위도메인 전체조회 by 상위도메인
+    public Set<Screening> getScreening(Movie movie){
+        //하위도메인의 조회는, 1) 상위도메인 존재여부 검증 + 2) 하위도메인이 자체가 비었을 경우 검증한다.
+        // -> getter는 t/f가 아니기 때문에, 검증의 실패 결과로 매번 빈 컬렉션을 생성 반환하는 것보다는,
+        // --> 상수로 만들어놓은 빈 EMTPY 컬렉션을 반환한다.
+        if (!movies.containsKey(movie)
+            || movies.get(movie).isEmpty()) {
+            return EMPTY;
+        }
+
+        return movies.get(movie);
+    }
+
     public boolean enter(Audience audience) {
         Ticket ticket = audience.getTicket();
         return ticket.isValid(this);

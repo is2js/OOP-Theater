@@ -4,12 +4,13 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import theater.discount.amount.AmountDiscount;
 import theater.discount.amount.SequenceAmountDiscount;
+import theater.discount.percent.PercentDiscount;
 
 public class Main {
     public static void main(final String[] args) {
         final Theater theater = new Theater(Money.of(100.0));
 
-        Movie movie = new Movie<AmountDiscount> (
+        Movie movie = new Movie<AmountDiscount>(
             "spiderman",
             Duration.ofMinutes(120L),
             Money.of(5000.0),

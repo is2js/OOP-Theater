@@ -11,7 +11,6 @@ public abstract class SequenceDiscount implements DiscountCondition {
 
     @Override
     public boolean isSatisfiedBy(final Screening screening, final int audienceCount) {
-        //발동조건
         return screening.sequence == sequence;
     }
 }

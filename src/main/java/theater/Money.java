@@ -18,4 +18,8 @@ public class Money {
         }
         return new Money(0.0);
     }
+
+    public Money multi(final double times) {
+        return new Money(this.amount * times);
+    }
 }

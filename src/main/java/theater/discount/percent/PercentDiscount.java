@@ -1,6 +1,7 @@
-package theater.discount;
+package theater.discount.percent;
 
 import theater.Money;
+import theater.discount.DiscountCondition;
 import theater.discount.DiscountPolicy.PERCENT;
 
 public abstract class PercentDiscount implements PERCENT, DiscountCondition {

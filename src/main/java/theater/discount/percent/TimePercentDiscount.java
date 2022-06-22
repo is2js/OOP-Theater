@@ -1,4 +1,4 @@
-package theater.discount;
+package theater.discount.percent;
 
 import java.time.LocalDateTime;
 import theater.Screening;

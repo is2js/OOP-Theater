@@ -1,4 +1,4 @@
-package theater.discount;
+package theater.discount.amount;
 
 import theater.Money;
 import theater.Screening;

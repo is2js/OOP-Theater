@@ -1,7 +1,6 @@
 package theater;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Theater {
@@ -11,23 +10,6 @@ public class Theater {
 
     public Theater(final Money amount) {
         this.amount = amount;
-    }
-
-    public void setTicketOffices(TicketOffice... ticketOffices) {
-        this.ticketOffices.addAll(Arrays.asList(ticketOffices));
-    }
-
-    public void setTicket(TicketOffice ticketOffice, Long num) {
-        if (!ticketOffices.contains(ticketOffice)) {
-            return;
-        }
-        while (num-- > 0) {
-            ticketOffice.addTicket(new Ticket(this));
-        }
-    }
-
-    public void setInvitation(Audience audience) {
-        audience.setInvitation(new Invitation(this));
     }
 
     public boolean enter(Audience audience) {

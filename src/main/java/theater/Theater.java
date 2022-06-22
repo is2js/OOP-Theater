@@ -67,6 +67,12 @@ public class Theater {
         return movies.get(movie);
     }
 
+    // movie-screening이 잘 매칭되는 것인지(상-하위도메인 연결 되는지) 확인
+    public boolean isValidScreening(Movie movie, Screening screening){
+        // movie가 존재여부 -> 그 movie에 하위도메인에 포함되는지 여부를 둘다 만족
+        return movies.containsKey(movie) && movies.get(movie).contains(screening);
+    }
+
     public boolean enter(Audience audience) {
         Ticket ticket = audience.getTicket();
         return ticket.isValid(this);

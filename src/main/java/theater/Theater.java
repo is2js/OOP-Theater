@@ -1,12 +1,16 @@
 package theater;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Theater {
 
+    public static final Set<Screening> EMPTY = new HashSet<>();
+    private final Set<TicketOffice> ticketOffices = new HashSet<>();
+    private final Map<Movie, Set<Screening>> movies = new HashMap<>();
     private final Money amount;
-    private final List<TicketOffice> ticketOffices = new ArrayList<>();
 
     public Theater(final Money amount) {
         this.amount = amount;

@@ -2,7 +2,6 @@ package theater;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import theater.discount.SequenceAmountDiscount;
 
 public class Main {
     public static void main(final String[] args) {

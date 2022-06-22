@@ -19,6 +19,10 @@ public class Money {
         return new Money(0.0);
     }
 
+    public Money plus(final Money amount){
+        return new Money(this.amount + amount.amount);
+    }
+
     public Money multi(final double times) {
         return new Money(this.amount * times);
     }

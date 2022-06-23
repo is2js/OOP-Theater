@@ -25,6 +25,9 @@
     ![image-20220623170509341](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220623170509341.png)
 
 ### STEP3(정책조건은 전략패턴 + 정책은 템플릿메소드패턴으로 할인정책 반영)
+- step2에서 SOLID원칙을 적용하려고 한다.
+- condition은 trigger메서드 1개로 전략패턴을
+- policy는 구상정책별 개별구현시 `개별 field from 생성자`가 존재(추상클래스) + condtions들을 담을 공통field 존재 + coditions를 채울 public 템플릿메소드 여러개 존재 
 - movie가 condition + policy 모두 아는 최종 정책객체를 받아서 사용하던 책임을
     - movie는 템플릿메소드패턴이 적용된 policy만 알도록 책임 감소
     - policy가 전략패턴이 적용된 condtions들을 내부에서 가져 알도록 책임 위임 되었다.

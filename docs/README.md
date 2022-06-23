@@ -25,7 +25,7 @@
 ### STEP3(정책조건은 전략패턴 + 정책시행은 템플릿메소드패턴으로 할인정책 반영)
 - step2에서 SOLID원칙을 반영하도록 변경함.
 - 정책은 2개 인터페이스 -> policy는 템플릿메소드패턴, condition은 전략패턴을 사용하도록 변경함
-
+  ![image-20220624005906639](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220624005906639.png)
 #### 과정
 
 ##### Movie

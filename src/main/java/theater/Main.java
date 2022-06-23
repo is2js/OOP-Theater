@@ -2,8 +2,10 @@ package theater;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import theater.discount.amount.AmountDiscount;
-import theater.discount.amount.SequenceAmountDiscount;
+import theater.discount.condition.PeriodCondition;
+import theater.discount.condition.SequenceCondition;
+import theater.discount.policy.AmountPolicy;
+import theater.discount.policy.DiscountPolicy;
 import theater.domain.Customer;
 import theater.domain.Money;
 import theater.domain.Movie;
@@ -16,11 +18,16 @@ public class Main {
     public static void main(final String[] args) {
         final Theater theater = new Theater(Money.of(100.0));
 
-        Movie movie = new Movie<AmountDiscount>(
+        // 정책 사용법 변화에 따라, policy가 condtions들을 가지므로 채우도록 수정
+        final DiscountPolicy amountPolicy = new AmountPolicy(Money.of(1000.0));
+        amountPolicy.addCondition(new SequenceCondition(1));
+        amountPolicy.addCondition(new PeriodCondition(LocalDateTime.of(2019, 7, 7, 1, 00, 00)));
+
+        Movie movie = new Movie(
             "spiderman",
             Duration.ofMinutes(120L),
             Money.of(5000.0),
-            new SequenceAmountDiscount(Money.of(1000.0), 1)
+            amountPolicy
         );
 
         theater.addMovie(movie);

@@ -9,4 +9,8 @@ public class Customer {
     public Customer(final Money amount) {
         this.amount = amount;
     }
+
+    public boolean hasAmount(final Money price) {
+        throw new UnsupportedOperationException("Customer#hasAmount not write.");
+    }
 }

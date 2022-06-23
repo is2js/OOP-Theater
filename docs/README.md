@@ -209,3 +209,10 @@
     - 빨간색의 코드가 중복이다. 추가된 메서드로 대체한다.
 
   ![image-20220624003633243](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220624003633243.png)
+
+
+##### Main
+
+- 한번에 policy + condition 합쳐진 구상체에서 -> condtions를 채워서 가지고 있는 policy로 사용법 변화되었으니 코드 수정
+
+  ![image-20220624005647656](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220624005647656.png)

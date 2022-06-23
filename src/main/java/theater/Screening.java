@@ -22,6 +22,7 @@ public class Screening {
     void reserveSeat(int count){
         if (hasSeat(count)) {
             seat -= count;
+            return;
         }
         throw new RuntimeException("no seat");
     }

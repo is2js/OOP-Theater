@@ -26,4 +26,8 @@ public class Money {
     public Money multi(final double times) {
         return new Money(this.amount * times);
     }
+
+    public boolean greaterThan(final Money amount) {
+        return this.amount >= amount.amount;
+    }
 }

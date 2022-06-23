@@ -10,7 +10,16 @@ public class Customer {
         this.amount = amount;
     }
 
-    public boolean hasAmount(final Money price) {
-        throw new UnsupportedOperationException("Customer#hasAmount not write.");
+    // 거래(예매) 요청 -> 갑에 의해 물건을 받아와 자신이 가지니 setter역할로서 void로 정의한다
+    public void reserve(TicketSeller ticketSeller, Theater theater, Movie movie, Screening screening, int count){
+        reservation = ticketSeller.reserve(this, theater, movie, screening, count);
+    }
+
+    public boolean hasAmount(final Money amount) {
+        return this.amount.greaterThan(amount);
+    }
+
+    public void minusAmount(Money amount){
+        this.amount = this.amount.minus(amount);
     }
 }

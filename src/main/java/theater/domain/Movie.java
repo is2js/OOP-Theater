@@ -1,10 +1,8 @@
 package theater.domain;
 
 import java.time.Duration;
-import java.util.HashSet;
-import java.util.Set;
-import theater.discount.DiscountCondition;
-import theater.discount.DiscountPolicy;
+import theater.discount.condition.DiscountCondition;
+import theater.discount.policy.DiscountPolicy;
 
 public class Movie<T extends DiscountPolicy & DiscountCondition> {
     private final String title;

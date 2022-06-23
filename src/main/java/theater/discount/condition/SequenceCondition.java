@@ -1,4 +1,4 @@
-package theater.discount;
+package theater.discount.condition;
 
 import theater.domain.Screening;
 

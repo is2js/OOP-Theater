@@ -1,7 +1,8 @@
-package theater.discount;
+package theater.discount.policy;
 
 import java.util.HashSet;
 import java.util.Set;
+import theater.discount.condition.DiscountCondition;
 import theater.domain.Money;
 import theater.domain.Screening;
 

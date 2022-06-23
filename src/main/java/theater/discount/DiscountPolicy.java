@@ -1,8 +1,30 @@
 package theater.discount;
 
-public interface DiscountPolicy {
-    interface AMOUNT extends DiscountPolicy{}
-    interface PERCENT extends DiscountPolicy{}
-    interface COUNT extends DiscountPolicy{}
-    interface NONE extends DiscountPolicy{}
+import java.util.HashSet;
+import java.util.Set;
+import theater.domain.Money;
+import theater.domain.Screening;
+
+public abstract class DiscountPolicy {
+
+    private final Set<DiscountCondition> conditions = new HashSet<>();
+
+    public void addCondition(DiscountCondition discountCondition){
+        this.conditions.add(discountCondition);
+    }
+
+    public void copyCondition(DiscountPolicy discountPolicy){
+        discountPolicy.conditions.addAll(conditions);
+    }
+
+    public Money calculateFee(Screening screening, int count, Money fee){
+        for (final DiscountCondition condition : conditions) {
+            if (condition.isSatisfiedBy(screening, count)) {
+                return calculateFee(fee);
+            }
+        }
+        return fee;
+    }
+
+    protected abstract Money calculateFee(final Money fee);
 }

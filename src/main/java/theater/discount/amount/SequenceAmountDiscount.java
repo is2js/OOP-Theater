@@ -1,7 +1,7 @@
 package theater.discount.amount;
 
-import theater.Money;
-import theater.Screening;
+import theater.domain.Money;
+import theater.domain.Screening;
 
 public class SequenceAmountDiscount extends AmountDiscount {
     private int sequence;

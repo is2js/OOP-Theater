@@ -1,4 +1,4 @@
-package theater;
+package theater.domain;
 
 import java.time.LocalDateTime;
 
@@ -14,12 +14,12 @@ public class Screening {
     }
 
     //필드변화 trigger
-    boolean hasSeat(int count){
+    public boolean hasSeat(int count){
         return seat >= count;
     }
 
     //필드변화 action
-    void reserveSeat(int count){
+    public void reserveSeat(int count){
         if (hasSeat(count)) {
             seat -= count;
             return;

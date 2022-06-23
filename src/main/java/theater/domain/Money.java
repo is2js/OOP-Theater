@@ -1,4 +1,4 @@
-package theater;
+package theater.domain;
 
 public class Money {
 

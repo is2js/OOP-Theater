@@ -1,4 +1,7 @@
-package theater;
+package theater.domain;
+
+import theater.domain.theater.Theater;
+import theater.domain.theater.TicketSeller;
 
 public class Customer {
 

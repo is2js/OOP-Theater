@@ -1,7 +1,7 @@
 package theater.discount.percent;
 
 import java.time.LocalDateTime;
-import theater.Screening;
+import theater.domain.Screening;
 
 public class TimePercentDiscount extends PercentDiscount {
     private LocalDateTime whenScreened;

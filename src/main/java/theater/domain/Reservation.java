@@ -1,4 +1,6 @@
-package theater;
+package theater.domain;
+
+import theater.domain.theater.Theater;
 
 public class Reservation {
 

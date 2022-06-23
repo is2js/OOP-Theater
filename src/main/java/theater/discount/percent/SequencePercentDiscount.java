@@ -1,6 +1,6 @@
 package theater.discount.percent;
 
-import theater.Screening;
+import theater.domain.Screening;
 
 public class SequencePercentDiscount extends PercentDiscount {
     private final int sequence;

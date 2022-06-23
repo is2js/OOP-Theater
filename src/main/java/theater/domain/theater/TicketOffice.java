@@ -1,7 +1,11 @@
-package theater;
+package theater.domain.theater;
 
 import java.util.HashMap;
 import java.util.Map;
+import theater.domain.Money;
+import theater.domain.Movie;
+import theater.domain.Reservation;
+import theater.domain.Screening;
 
 public class TicketOffice {
 

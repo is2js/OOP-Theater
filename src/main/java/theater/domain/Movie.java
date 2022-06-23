@@ -1,4 +1,4 @@
-package theater;
+package theater.domain;
 
 import java.time.Duration;
 import java.util.Arrays;

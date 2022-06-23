@@ -1,6 +1,6 @@
 package theater.discount.amount;
 
-import theater.Money;
+import theater.domain.Money;
 import theater.discount.DiscountCondition;
 import theater.discount.DiscountPolicy.AMOUNT;
 

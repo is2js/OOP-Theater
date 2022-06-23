@@ -1,8 +1,8 @@
 package theater.discount.amount;
 
 import java.time.LocalDateTime;
-import theater.Money;
-import theater.Screening;
+import theater.domain.Money;
+import theater.domain.Screening;
 
 public class TimeAmountDiscount extends AmountDiscount {
     private LocalDateTime whenScreened;

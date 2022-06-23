@@ -4,6 +4,13 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import theater.discount.amount.AmountDiscount;
 import theater.discount.amount.SequenceAmountDiscount;
+import theater.domain.Customer;
+import theater.domain.Money;
+import theater.domain.Movie;
+import theater.domain.Screening;
+import theater.domain.theater.Theater;
+import theater.domain.theater.TicketOffice;
+import theater.domain.theater.TicketSeller;
 
 public class Main {
     public static void main(final String[] args) {
@@ -40,7 +47,7 @@ public class Main {
         final Customer customer = new Customer(Money.of(20000.0));
 
         for (Screening screening: theater.getScreening(movie)) {
-            customer.reserve( ticketSeller, theater, movie, screening, 2);
+            customer.reserve(ticketSeller, theater, movie, screening, 2);
             final boolean isOk = theater.enter(customer, 2);
             System.out.println("isOk = " + isOk);
             break;

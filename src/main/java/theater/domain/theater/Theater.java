@@ -1,9 +1,14 @@
-package theater;
+package theater.domain.theater;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import theater.domain.Customer;
+import theater.domain.Money;
+import theater.domain.Movie;
+import theater.domain.Reservation;
+import theater.domain.Screening;
 
 public class Theater {
 

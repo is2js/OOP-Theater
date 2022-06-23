@@ -1,4 +1,10 @@
-package theater;
+package theater.domain.theater;
+
+import theater.domain.Customer;
+import theater.domain.Money;
+import theater.domain.Movie;
+import theater.domain.Reservation;
+import theater.domain.Screening;
 
 public class TicketSeller {
 

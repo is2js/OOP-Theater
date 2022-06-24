@@ -12,6 +12,10 @@ public class DiscountPolicy {
     private final Set<DiscountCondition> conditions = new HashSet<>();
     private Calculator calculator;
 
+    public DiscountPolicy(final Calculator calculator) {
+        this.calculator = calculator;
+    }
+
     public void addCondition(DiscountCondition discountCondition){
         this.conditions.add(discountCondition);
     }

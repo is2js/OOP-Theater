@@ -3,12 +3,14 @@ package theater.discount.policy;
 import java.util.HashSet;
 import java.util.Set;
 import theater.discount.condition.DiscountCondition;
+import theater.discount.policy.calculator.Calculator;
 import theater.domain.Money;
 import theater.domain.Screening;
 
-public abstract class DiscountPolicy {
+public class DiscountPolicy {
 
     private final Set<DiscountCondition> conditions = new HashSet<>();
+    private Calculator calculator;
 
     public void addCondition(DiscountCondition discountCondition){
         this.conditions.add(discountCondition);
@@ -21,11 +23,9 @@ public abstract class DiscountPolicy {
     public Money calculateFee(Screening screening, int count, Money fee){
         for (final DiscountCondition condition : conditions) {
             if (condition.isSatisfiedBy(screening, count)) {
-                return calculateFee(fee);
+                return calculator.calculateFee(fee);
             }
         }
         return fee;
     }
-
-    protected abstract Money calculateFee(final Money fee);
 }

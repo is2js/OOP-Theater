@@ -1,4 +1,4 @@
-package theater.discount.policy.calculator;
+package theater.discount.policy.strategy;
 
 import theater.domain.Money;
 

@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import theater.discount.condition.PeriodCondition;
 import theater.discount.condition.SequenceCondition;
-import theater.discount.policy.AmountPolicy;
+import theater.discount.policy.strategy.AmountCalculator;
 import theater.discount.policy.DiscountPolicy;
 import theater.domain.Customer;
 import theater.domain.Money;
@@ -19,7 +19,7 @@ public class Main {
         final Theater theater = new Theater(Money.of(100.0));
 
         // 정책 사용법 변화에 따라, policy가 condtions들을 가지므로 채우도록 수정
-        final DiscountPolicy amountPolicy = new AmountPolicy(Money.of(1000.0));
+        final DiscountPolicy amountPolicy = new AmountCalculator(Money.of(1000.0));
         amountPolicy.addCondition(new SequenceCondition(1));
         amountPolicy.addCondition(new PeriodCondition(LocalDateTime.of(2019, 7, 7, 1, 00, 00)));
 

@@ -4,7 +4,7 @@ import theater.discount.policy.strategy.AmountCalculator;
 import theater.discount.policy.strategy.Calculator;
 import theater.domain.Money;
 
-public class AmountCalculatorFactory implements CalculatorFactory {
+public class AmountCalculatorFactory implements Calculator {
     private AmountCalculator cache;
     private Money amount;
 

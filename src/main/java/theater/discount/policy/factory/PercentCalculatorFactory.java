@@ -4,7 +4,7 @@ import theater.discount.policy.strategy.Calculator;
 import theater.discount.policy.strategy.PercentCalculator;
 import theater.domain.Money;
 
-public class PercentCalculatorFactory implements CalculatorFactory {
+public class PercentCalculatorFactory implements Calculator {
     private PercentCalculator cache;
     private Double percent;
 

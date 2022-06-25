@@ -3,7 +3,6 @@ package theater.discount.policy;
 import java.util.HashSet;
 import java.util.Set;
 import theater.discount.condition.DiscountCondition;
-import theater.discount.policy.factory.CalculatorFactory;
 import theater.domain.Money;
 import theater.domain.Screening;
 

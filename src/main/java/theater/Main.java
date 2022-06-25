@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import theater.discount.condition.PeriodCondition;
 import theater.discount.condition.SequenceCondition;
 import theater.discount.policy.DiscountPolicy;
-import theater.discount.policy.strategy.AmountCalculator;
-import theater.discount.policy.strategy.Calculator;
+import theater.discount.policy.factory.AmountCalculatorFactory;
 import theater.domain.Customer;
 import theater.domain.Money;
 import theater.domain.Movie;
@@ -19,10 +18,7 @@ public class Main {
     public static void main(final String[] args) {
         final Theater theater = new Theater(Money.of(100.0));
 
-        // 전략객체를 받아 생성되기 때문에, 전략객체부터 생성
-        final Calculator amountCalculator = new AmountCalculator(Money.of(1000.0));
-        // 일반class가 된 discountpolicy -> amountpolicy라는 구상체 이제 x
-        final DiscountPolicy discountPolicy = new DiscountPolicy(amountCalculator);
+        final DiscountPolicy discountPolicy = new DiscountPolicy(new AmountCalculatorFactory((Money.of(1000.0))));
         discountPolicy.addCondition(new SequenceCondition(1));
         discountPolicy.addCondition(new PeriodCondition(LocalDateTime.of(2019, 7, 7, 1, 00, 00)));
 

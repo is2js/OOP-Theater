@@ -7,7 +7,7 @@ import theater.domain.Money;
 public class NosaleCalculatorFactory implements CalculatorFactory {
     private NosaleCalculator cache;
 
-    public synchronized Calculator getCalculator() {
+    private synchronized Calculator getCalculator() {
         if (cache == null) {
             cache = new NosaleCalculator();
         }
@@ -16,6 +16,6 @@ public class NosaleCalculatorFactory implements CalculatorFactory {
 
     @Override
     public Money calculateFee(final Money fee) {
-        throw new UnsupportedOperationException("NosaleCalculatorFactory#calculateFee not implemented.");
+        return getCalculator().calculateFee(fee);
     }
 }

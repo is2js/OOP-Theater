@@ -27,7 +27,7 @@ public class DiscountPolicy {
     public Money calculateFee(Screening screening, int count, Money fee){
         for (final DiscountCondition condition : conditions) {
             if (condition.isSatisfiedBy(screening, count)) {
-                return calculatorFactory.getCalculator().calculateFee(fee);
+                return calculatorFactory.calculateFee(fee);
             }
         }
         return fee;

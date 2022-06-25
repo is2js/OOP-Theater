@@ -12,7 +12,7 @@ public class PercentCalculatorFactory implements CalculatorFactory {
         this.percent = percent;
     }
 
-    public synchronized Calculator getCalculator() {
+    private synchronized Calculator getCalculator() {
         if (cache == null) {
             cache = new PercentCalculator(percent);
         }
@@ -21,6 +21,6 @@ public class PercentCalculatorFactory implements CalculatorFactory {
 
     @Override
     public Money calculateFee(final Money fee) {
-        throw new UnsupportedOperationException("PercentCalculatorFactory#calculateFee not implemented.");
+        return getCalculator().calculateFee(fee);
     }
 }

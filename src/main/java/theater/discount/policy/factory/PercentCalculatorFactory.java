@@ -2,6 +2,7 @@ package theater.discount.policy.factory;
 
 import theater.discount.policy.strategy.Calculator;
 import theater.discount.policy.strategy.PercentCalculator;
+import theater.domain.Money;
 
 public class PercentCalculatorFactory implements CalculatorFactory {
     private PercentCalculator cache;
@@ -11,11 +12,15 @@ public class PercentCalculatorFactory implements CalculatorFactory {
         this.percent = percent;
     }
 
-    @Override
     public synchronized Calculator getCalculator() {
         if (cache == null) {
             cache = new PercentCalculator(percent);
         }
         return cache;
+    }
+
+    @Override
+    public Money calculateFee(final Money fee) {
+        throw new UnsupportedOperationException("PercentCalculatorFactory#calculateFee not implemented.");
     }
 }

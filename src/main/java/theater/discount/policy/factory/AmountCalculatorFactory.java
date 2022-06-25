@@ -12,12 +12,16 @@ public class AmountCalculatorFactory implements CalculatorFactory {
         this.amount = amount;
     }
 
-    @Override
     public synchronized Calculator getCalculator() {
         if (cache == null) {
             cache = new AmountCalculator(amount);
         }
 
         return cache;
+    }
+
+    @Override
+    public Money calculateFee(final Money fee) {
+        throw new UnsupportedOperationException("AmountCalculatorFactory#calculateFee not implemented.");
     }
 }

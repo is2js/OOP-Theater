@@ -1,8 +1,8 @@
 package theater.discount.policy.factory;
 
-import theater.discount.policy.strategy.Calculator;
+import theater.domain.Money;
 
 public interface CalculatorFactory {
 
-    Calculator getCalculator();
+    Money calculateFee(Money fee);
 }

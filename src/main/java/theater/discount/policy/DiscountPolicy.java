@@ -10,10 +10,10 @@ import theater.domain.Screening;
 public class DiscountPolicy {
 
     private final Set<DiscountCondition> conditions = new HashSet<>();
-    private Calculator calculator;
+    private Calculator factory;
 
-    public DiscountPolicy(final Calculator calculator) {
-        this.calculator = calculator;
+    public DiscountPolicy(final Calculator factory) {
+        this.factory = factory;
     }
 
     public void addCondition(DiscountCondition discountCondition){
@@ -27,7 +27,7 @@ public class DiscountPolicy {
     public Money calculateFee(Screening screening, int count, Money fee){
         for (final DiscountCondition condition : conditions) {
             if (condition.isSatisfiedBy(screening, count)) {
-                return calculator.calculateFee(fee);
+                return factory.calculateFee(fee);
             }
         }
         return fee;

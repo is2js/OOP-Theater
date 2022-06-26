@@ -42,3 +42,8 @@
 - step3에서 전략객체를 pushed로 강제주입 받는 DiscountPolicy에 생성사용패턴을 적용하기 위해
     1. 전략패턴에 simple Factory 적용하기
     2. simple Factory를 위임된 Factory로 변경하기
+
+### STEP5
+- step4에서 전략객체 사용처(보호, 낮은 의존성)에서 전략객체2관련 로직을 전략1Factory에 위임하기
+  ![image-20220626231934396](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220626231934396.png)
+    

@@ -1,7 +1,5 @@
-package theater.discount.policy.factory;
+package theater.discount.policy.strategy;
 
-import theater.discount.policy.strategy.AmountCalculator;
-import theater.discount.policy.strategy.Calculator;
 import theater.domain.Money;
 
 public class AmountCalculatorFactory implements Calculator {

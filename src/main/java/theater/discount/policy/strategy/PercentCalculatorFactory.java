@@ -1,4 +1,4 @@
-package theater.discount.policy.factory;
+package theater.discount.policy.strategy;
 
 import theater.discount.policy.strategy.Calculator;
 import theater.discount.policy.strategy.PercentCalculator;

@@ -1,11 +1,12 @@
 package theater.discount.policy.strategy;
 
-import theater.discount.policy.strategy.Calculator;
-import theater.discount.policy.strategy.NosaleCalculator;
+import java.util.Set;
+import theater.discount.condition.DiscountCondition;
 import theater.domain.Money;
 
-public class NosaleCalculatorFactory implements Calculator {
+public class NosaleCalculatorFactory implements PolicyFactory {
     private NosaleCalculator cache;
+    private Set<DiscountCondition> conditions;
 
     private synchronized Calculator getCalculator() {
         if (cache == null) {
@@ -17,5 +18,14 @@ public class NosaleCalculatorFactory implements Calculator {
     @Override
     public Money calculateFee(final Money fee) {
         return getCalculator().calculateFee(fee);
+    }
+
+    @Override
+    public Set<DiscountCondition> getConditions() {
+        return conditions;
+    }
+
+    public void addCondition(final DiscountCondition condition) {
+        this.conditions.add(condition);
     }
 }

@@ -18,9 +18,11 @@ public class Main {
     public static void main(final String[] args) {
         final Theater theater = new Theater(Money.of(100.0));
 
-        final DiscountPolicy discountPolicy = new DiscountPolicy(new AmountCalculatorFactory((Money.of(1000.0))));
-        discountPolicy.addCondition(new SequenceCondition(1));
-        discountPolicy.addCondition(new PeriodCondition(LocalDateTime.of(2019, 7, 7, 1, 00, 00)));
+        final AmountCalculatorFactory amountCalculatorFactory = new AmountCalculatorFactory((Money.of(1000.0)));
+        amountCalculatorFactory.addCondition(new SequenceCondition(1));
+        amountCalculatorFactory.addCondition(new PeriodCondition(LocalDateTime.of(2019, 7, 7, 1, 00, 00)));
+
+        final DiscountPolicy discountPolicy = new DiscountPolicy(amountCalculatorFactory);
 
         Movie movie = new Movie(
             "spiderman",

@@ -3,16 +3,16 @@ package theater.discount.policy;
 import java.util.HashSet;
 import java.util.Set;
 import theater.discount.condition.DiscountCondition;
-import theater.discount.policy.strategy.Calculator;
+import theater.discount.policy.strategy.PolicyFactory;
 import theater.domain.Money;
 import theater.domain.Screening;
 
 public class DiscountPolicy {
 
     private final Set<DiscountCondition> conditions = new HashSet<>();
-    private Calculator factory;
+    private PolicyFactory factory;
 
-    public DiscountPolicy(final Calculator factory) {
+    public DiscountPolicy(final PolicyFactory factory) {
         this.factory = factory;
     }
 
@@ -25,7 +25,7 @@ public class DiscountPolicy {
     }
 
     public Money calculateFee(Screening screening, int count, Money fee){
-        for (final DiscountCondition condition : conditions) {
+        for (final DiscountCondition condition : factory.getConditions()) {
             if (condition.isSatisfiedBy(screening, count)) {
                 return factory.calculateFee(fee);
             }

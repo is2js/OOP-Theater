@@ -39,11 +39,12 @@
     - condtions들을 담을 `공통 field` 필요함.
     - 공통 field coditions를 채울 `공통 public 템플릿메소드 여러개`가 필요함.
 
-### STEP4(전략패턴에 simple -> 위임된 Factory 적용하기)
+### STEP4(템플릿메소드패턴 -> 전략패턴 -> 전략 + simple factory -> 전략 + 위임된 Factory)
 ![image-20220626232753379](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220626232753379.png)
 - step3에서 전략객체를 pushed로 강제주입 받는 DiscountPolicy에 생성사용패턴을 적용하기 위해
-    1. 전략패턴에 simple Factory 적용하기 for 생성사용패턴
-    2. simple Factory를 위임된 Factory로 변경하기 for 회전풍차
+  1. 템플릿메소드패턴의 DiscountPolicy를 전략패턴으로 변경
+  2. 전략패턴에 simple Factory 적용하기 for 생성사용패턴
+  3. simple Factory를 위임된 Factory로 변경하기 for 회전풍차
 
 ### STEP5
   ![image-20220626231934396](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220626231934396.png)

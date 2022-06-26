@@ -3,7 +3,8 @@
 - `step1` : Client코드부터 짜야하지만, 상호관계를 파악하기 위해 class들을 순서대로 설계한다.
 - `step2` : step1과 거의 별개의 theater를 새로 설계한다. 티켓 대신 예매권을 사용하고, 할인 정책을 2개의 인터페이스로 반영한다.
 - `step3` : step2에서 할인정책 부분이 변경되며, SOLID 원칙을 반영하려함.
-- `step4` : step3에서 전략패턴에 생성사용패턴(Factory -> 위임된 Factory)를 적용한다.
+- `step4` : step3에서 전략패턴에 생성사용패턴(simple Factory -> 위임된 Factory)를 적용한다.
+- `step5` : step4에서 policy class의 의존성을 낮추기 위해 전략객체2(condition)관련 로직을 factory(전략객체1, policy)에 위임하기
 
 ### STEP1(기본 설계)
 - theater 수정 설계도대로 class 설계하기
@@ -38,12 +39,13 @@
     - condtions들을 담을 `공통 field` 필요함.
     - 공통 field coditions를 채울 `공통 public 템플릿메소드 여러개`가 필요함.
 
-### STEP4
+### STEP4(전략패턴에 simple -> 위임된 Factory 적용하기)
+![image-20220626232753379](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220626232753379.png)
 - step3에서 전략객체를 pushed로 강제주입 받는 DiscountPolicy에 생성사용패턴을 적용하기 위해
-    1. 전략패턴에 simple Factory 적용하기
-    2. simple Factory를 위임된 Factory로 변경하기
+    1. 전략패턴에 simple Factory 적용하기 for 생성사용패턴
+    2. simple Factory를 위임된 Factory로 변경하기 for 회전풍차
 
 ### STEP5
-- step4에서 전략객체 사용처(보호, 낮은 의존성)에서 전략객체2관련 로직을 전략1Factory에 위임하기
   ![image-20220626231934396](https://raw.githubusercontent.com/is3js/screenshots/main/image-20220626231934396.png)
+- step4에서 전략객체 사용처(보호, 낮은 의존성)에서 전략객체2관련 로직을 전략1Factory에 위임하기
     

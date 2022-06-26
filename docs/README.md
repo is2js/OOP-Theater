@@ -3,8 +3,8 @@
 - `step1` : Client코드부터 짜야하지만, 상호관계를 파악하기 위해 class들을 순서대로 설계한다.
 - `step2` : step1과 거의 별개의 theater를 새로 설계한다. 티켓 대신 예매권을 사용하고, 할인 정책을 2개의 인터페이스로 반영한다.
 - `step3` : step2에서 할인정책 부분이 변경되며, SOLID 원칙을 반영하려함.
-- `step4` : step3에서 전략패턴에 생성사용패턴(simple Factory -> 위임된 Factory)를 적용한다.
-- `step5` : step4에서 policy class의 의존성을 낮추기 위해 전략객체2(condition)관련 로직을 factory(전략객체1, policy)에 위임하기
+- `step4` : step3에서 정책에 적용된 템플릿메소드패턴 -> 전략패턴 변경후, 생성사용패턴 적용을 위해 Factory패턴을 적용한다.
+- `step5` : step4에서 policy class의 의존성을 낮추기 위해 전략객체2(condition)관련 로직을 factory(전략객체1, policy)에 위임한다.
 
 ### STEP1(기본 설계)
 - theater 수정 설계도대로 class 설계하기

@@ -1,7 +1,7 @@
-package theater.discount.policy;
+package theater.discountpolicy;
 
-import theater.discount.condition.DiscountCondition;
-import theater.discount.policy.strategy.PolicyFactory;
+import theater.discountpolicy.factory.condition.DiscountCondition;
+import theater.discountpolicy.factory.PolicyFactory;
 import theater.domain.Money;
 import theater.domain.Screening;
 

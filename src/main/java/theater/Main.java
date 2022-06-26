@@ -2,10 +2,10 @@ package theater;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import theater.discount.condition.PeriodCondition;
-import theater.discount.condition.SequenceCondition;
-import theater.discount.policy.DiscountPolicy;
-import theater.discount.policy.strategy.AmountCalculatorFactory;
+import theater.discountpolicy.factory.condition.PeriodCondition;
+import theater.discountpolicy.factory.condition.SequenceCondition;
+import theater.discountpolicy.DiscountPolicy;
+import theater.discountpolicy.factory.AmountCalculatorFactory;
 import theater.domain.Customer;
 import theater.domain.Money;
 import theater.domain.Movie;

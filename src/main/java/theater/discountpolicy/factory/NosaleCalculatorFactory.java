@@ -1,21 +1,18 @@
-package theater.discount.policy.strategy;
+package theater.discountpolicy.factory;
 
 import java.util.Set;
-import theater.discount.condition.DiscountCondition;
+import theater.discountpolicy.factory.condition.DiscountCondition;
+import theater.discountpolicy.strategy.Calculator;
+import theater.discountpolicy.strategy.NosaleCalculator;
 import theater.domain.Money;
 
-public class PercentCalculatorFactory implements PolicyFactory {
-    private PercentCalculator cache;
-    private Double percent;
+public class NosaleCalculatorFactory implements PolicyFactory {
+    private NosaleCalculator cache;
     private Set<DiscountCondition> conditions;
-
-    public PercentCalculatorFactory(final Double percent) {
-        this.percent = percent;
-    }
 
     private synchronized Calculator getCalculator() {
         if (cache == null) {
-            cache = new PercentCalculator(percent);
+            cache = new NosaleCalculator();
         }
         return cache;
     }

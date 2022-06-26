@@ -1,8 +1,10 @@
-package theater.discount.policy.strategy;
+package theater.discountpolicy.factory;
 
 import java.util.HashSet;
 import java.util.Set;
-import theater.discount.condition.DiscountCondition;
+import theater.discountpolicy.factory.condition.DiscountCondition;
+import theater.discountpolicy.strategy.AmountCalculator;
+import theater.discountpolicy.strategy.Calculator;
 import theater.domain.Money;
 
 public class AmountCalculatorFactory implements PolicyFactory {

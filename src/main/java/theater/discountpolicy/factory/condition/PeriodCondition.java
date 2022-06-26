@@ -1,4 +1,4 @@
-package theater.discount.condition;
+package theater.discountpolicy.factory.condition;
 
 import java.time.LocalDateTime;
 import theater.domain.Screening;
